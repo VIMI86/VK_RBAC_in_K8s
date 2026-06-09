@@ -1,29 +1,23 @@
+#  --- 1
 - name: SecretRead
-
   apiGroups:
     - ""
-
   resources:
     - secrets
-
   verbs:
     - get
     - list
     - watch
-
   severity: CRITICAL
-
   description: Can read secrets
 
-
+#  --- 2
 - name: WorkloadCreation
-
   apiGroups:
     - ""
     - apps
     - extensions
     - batch
-
   resources:
     - pods
     - deployments
@@ -32,205 +26,214 @@
     - replicasets
     - jobs
     - cronjobs
-
   verbs:
     - create
     - patch
     - update
-
   severity: HIGH
-
   description: Can create or modify workloads
 
-
+#  --- 3
 - name: PodExec
-
   apiGroups:
     - ""
-
   resources:
     - pods/exec
     - pods/attach
     - pods/portforward
-
   verbs:
     - create
-
   severity: HIGH
-
   description: Can access running containers
 
-
+#  --- 4
 - name: RBACEscalation
-
   apiGroups:
     - rbac.authorization.k8s.io
-
   resources:
     - roles
     - clusterroles
     - rolebindings
     - clusterrolebindings
-
   verbs:
     - create
     - update
     - patch
     - bind
     - escalate
-
   severity: CRITICAL
-
   description: Can escalate privileges
 
-
+#  --- 5
 - name: Impersonation
-
   apiGroups:
     - ""
-
   resources:
     - users
     - groups
     - serviceaccounts
-
   verbs:
     - impersonate
-
   severity: CRITICAL
-
   description: Can impersonate identities
 
-
+#  --- 6
 - name: ServiceAccountToken
-
   apiGroups:
     - ""
-
   resources:
     - serviceaccounts/token
-
   verbs:
     - create
-
   severity: CRITICAL
-
   description: Can create service account tokens
 
-
+#  --- 6
 - name: NodeAccess
-
   apiGroups:
     - ""
-
   resources:
     - nodes
     - nodes/proxy
-
   verbs:
     - get
     - proxy
-
   severity: HIGH
-
   description: Access to kubelet nodes
 
-
+#  --- 7
 - name: CertificateApproval
-
   apiGroups:
     - certificates.k8s.io
-
   resources:
     - certificatesigningrequests
-
   verbs:
     - create
     - approve
-
   severity: CRITICAL
-
   description: Can issue certificates
 
-
+#  --- 8
 - name: NamespaceDeletion
-
   apiGroups:
     - ""
-
   resources:
     - namespaces
-
   verbs:
     - delete
-
   severity: HIGH
-
   description: Can delete namespaces
 
-
+#  --- 9
 - name: PersistentVolumeModification
-
   apiGroups:
     - ""
-
   resources:
     - persistentvolumes
     - persistentvolumeclaims
-
   verbs:
     - create
     - patch
     - update
-
   severity: MEDIUM
-
   description: Can modify storage
 
-
+#  --- 10
 - name: NodeDeletion
-
   apiGroups:
     - ""
-
   resources:
     - nodes
-
   verbs:
     - delete
-
   severity: HIGH
-
   description: Can remove cluster nodes
 
-
+#  --- 11
 - name: SecretDeletion
-
   apiGroups:
     - ""
-
   resources:
     - secrets
-
   verbs:
     - delete
-
   severity: HIGH
-
   description: Can delete secrets
 
-
+#  --- 12
 - name: ConfigMapDeletion
-
   apiGroups:
     - ""
-
   resources:
     - configmaps
-
   verbs:
     - delete
-
   severity: MEDIUM
-
   description: Can delete configmaps
+
+#  --- 13
+- name: WebhookAbuse
+  apiGroups:
+    - admissionregistration.k8s.io
+  resources:
+    - mutatingwebhookconfigurations
+    - validatingwebhookconfigurations
+  verbs:
+    - create
+    - update
+    - patch
+  severity: CRITICAL
+  description: Can intercept or mutate any API request cluster-wide
+
+#  --- 14
+- name: CRDModification
+  apiGroups:
+    - apiextensions.k8s.io
+  resources:
+    - customresourcedefinitions
+  verbs:
+    - create
+    - update
+    - patch
+    - delete
+  severity: HIGH
+  description: Can extend the API server with arbitrary resource types
+
+#  --- 15
+- name: ConfigMapRead
+  apiGroups:
+    - ""
+  resources:
+    - configmaps
+  verbs:
+    - get
+    - list
+    - watch
+  severity: MEDIUM
+  description: ConfigMaps often contain connection strings, feature flags, or internal URLs
+
+#  --- 16
+- name: AuthRecon
+  apiGroups:
+    - authentication.k8s.io
+    - authorization.k8s.io
+  resources:
+    - tokenreviews
+    - subjectaccessreviews
+    - localsubjectaccessreviews
+  verbs:
+    - create
+  severity: MEDIUM
+  description: Can enumerate permissions of other subjects — useful for privilege escalation recon
+
+#  --- 17
+- name: LeaderElectionAbuse
+  apiGroups:
+    - coordination.k8s.io
+  resources:
+    - leases
+  verbs:
+    - update
+    - patch
+  severity: MEDIUM
+  description: Can disrupt leader election of controllers and operators

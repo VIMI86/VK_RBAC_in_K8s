@@ -2,21 +2,626 @@
 Subject: User alice
 
 Permissions:
-[namespace] pods/get
-[namespace] pods/list
+[namespace:default] core/pods/get
+[namespace:default] core/pods/list
 
 Dangerous permissions:
 NONE
 
 ============================================================
-Subject: ServiceAccount app-sa
+Subject: ServiceAccount deployer-sa (sa-namespace: production)
 
 Permissions:
-[cluster] secrets/get
+[namespace:production] core/pods/create
+[namespace:production] core/pods/patch
+[namespace:production] core/pods/update
+[namespace:production] core/deployments/create
+[namespace:production] core/deployments/patch
+[namespace:production] core/deployments/update
+[namespace:production] core/statefulsets/create
+[namespace:production] core/statefulsets/patch
+[namespace:production] core/statefulsets/update
+[namespace:production] core/daemonsets/create
+[namespace:production] core/daemonsets/patch
+[namespace:production] core/daemonsets/update
+[namespace:production] core/replicasets/create
+[namespace:production] core/replicasets/patch
+[namespace:production] core/replicasets/update
+[namespace:production] core/jobs/create
+[namespace:production] core/jobs/patch
+[namespace:production] core/jobs/update
+[namespace:production] core/cronjobs/create
+[namespace:production] core/cronjobs/patch
+[namespace:production] core/cronjobs/update
+[namespace:production] apps/pods/create
+[namespace:production] apps/pods/patch
+[namespace:production] apps/pods/update
+[namespace:production] apps/deployments/create
+[namespace:production] apps/deployments/patch
+[namespace:production] apps/deployments/update
+[namespace:production] apps/statefulsets/create
+[namespace:production] apps/statefulsets/patch
+[namespace:production] apps/statefulsets/update
+[namespace:production] apps/daemonsets/create
+[namespace:production] apps/daemonsets/patch
+[namespace:production] apps/daemonsets/update
+[namespace:production] apps/replicasets/create
+[namespace:production] apps/replicasets/patch
+[namespace:production] apps/replicasets/update
+[namespace:production] apps/jobs/create
+[namespace:production] apps/jobs/patch
+[namespace:production] apps/jobs/update
+[namespace:production] apps/cronjobs/create
+[namespace:production] apps/cronjobs/patch
+[namespace:production] apps/cronjobs/update
+[namespace:production] extensions/pods/create
+[namespace:production] extensions/pods/patch
+[namespace:production] extensions/pods/update
+[namespace:production] extensions/deployments/create
+[namespace:production] extensions/deployments/patch
+[namespace:production] extensions/deployments/update
+[namespace:production] extensions/statefulsets/create
+[namespace:production] extensions/statefulsets/patch
+[namespace:production] extensions/statefulsets/update
+[namespace:production] extensions/daemonsets/create
+[namespace:production] extensions/daemonsets/patch
+[namespace:production] extensions/daemonsets/update
+[namespace:production] extensions/replicasets/create
+[namespace:production] extensions/replicasets/patch
+[namespace:production] extensions/replicasets/update
+[namespace:production] extensions/jobs/create
+[namespace:production] extensions/jobs/patch
+[namespace:production] extensions/jobs/update
+[namespace:production] extensions/cronjobs/create
+[namespace:production] extensions/cronjobs/patch
+[namespace:production] extensions/cronjobs/update
+[namespace:production] batch/pods/create
+[namespace:production] batch/pods/patch
+[namespace:production] batch/pods/update
+[namespace:production] batch/deployments/create
+[namespace:production] batch/deployments/patch
+[namespace:production] batch/deployments/update
+[namespace:production] batch/statefulsets/create
+[namespace:production] batch/statefulsets/patch
+[namespace:production] batch/statefulsets/update
+[namespace:production] batch/daemonsets/create
+[namespace:production] batch/daemonsets/patch
+[namespace:production] batch/daemonsets/update
+[namespace:production] batch/replicasets/create
+[namespace:production] batch/replicasets/patch
+[namespace:production] batch/replicasets/update
+[namespace:production] batch/jobs/create
+[namespace:production] batch/jobs/patch
+[namespace:production] batch/jobs/update
+[namespace:production] batch/cronjobs/create
+[namespace:production] batch/cronjobs/patch
+[namespace:production] batch/cronjobs/update
+
+Dangerous permissions:
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] core/pods/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] core/pods/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] core/pods/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] core/deployments/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] core/deployments/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] core/deployments/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] core/statefulsets/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] core/statefulsets/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] core/statefulsets/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] core/daemonsets/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] core/daemonsets/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] core/daemonsets/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] core/replicasets/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] core/replicasets/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] core/replicasets/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] core/jobs/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] core/jobs/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] core/jobs/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] core/cronjobs/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] core/cronjobs/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] core/cronjobs/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] apps/pods/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] apps/pods/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] apps/pods/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] apps/deployments/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] apps/deployments/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] apps/deployments/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] apps/statefulsets/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] apps/statefulsets/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] apps/statefulsets/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] apps/daemonsets/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] apps/daemonsets/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] apps/daemonsets/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] apps/replicasets/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] apps/replicasets/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] apps/replicasets/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] apps/jobs/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] apps/jobs/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] apps/jobs/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] apps/cronjobs/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] apps/cronjobs/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] apps/cronjobs/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] extensions/pods/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] extensions/pods/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] extensions/pods/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] extensions/deployments/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] extensions/deployments/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] extensions/deployments/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] extensions/statefulsets/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] extensions/statefulsets/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] extensions/statefulsets/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] extensions/daemonsets/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] extensions/daemonsets/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] extensions/daemonsets/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] extensions/replicasets/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] extensions/replicasets/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] extensions/replicasets/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] extensions/jobs/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] extensions/jobs/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] extensions/jobs/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] extensions/cronjobs/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] extensions/cronjobs/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] extensions/cronjobs/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] batch/pods/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] batch/pods/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] batch/pods/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] batch/deployments/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] batch/deployments/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] batch/deployments/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] batch/statefulsets/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] batch/statefulsets/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] batch/statefulsets/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] batch/daemonsets/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] batch/daemonsets/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] batch/daemonsets/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] batch/replicasets/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] batch/replicasets/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] batch/replicasets/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] batch/jobs/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] batch/jobs/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] batch/jobs/update
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] batch/cronjobs/create
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] batch/cronjobs/patch
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [namespace:production] batch/cronjobs/update
+Reason: Can create or modify workloads
+
+============================================================
+Subject: ServiceAccount app-sa (sa-namespace: default)
+
+Permissions:
+[cluster] core/secrets/get
 
 Dangerous permissions:
 
 [CRITICAL]
 Rule: SecretRead
-Permission: secrets/get
+Permission: [cluster] core/secrets/get
 Reason: Can read secrets
+
+============================================================
+Subject: User vpPerson1
+
+Permissions:
+[cluster] */*/get
+[cluster] */*/list
+[cluster] */*/watch
+
+Dangerous permissions:
+NONE
+
+============================================================
+Subject: Group devops
+
+Permissions:
+[cluster] */*/*
+
+Dangerous permissions:
+
+[CRITICAL]
+Rule: SecretRead
+Permission: [cluster] */*/*
+Reason: Can read secrets
+
+[HIGH]
+Rule: WorkloadCreation
+Permission: [cluster] */*/*
+Reason: Can create or modify workloads
+
+[HIGH]
+Rule: PodExec
+Permission: [cluster] */*/*
+Reason: Can access running containers
+
+[CRITICAL]
+Rule: RBACEscalation
+Permission: [cluster] */*/*
+Reason: Can escalate privileges
+
+[CRITICAL]
+Rule: Impersonation
+Permission: [cluster] */*/*
+Reason: Can impersonate identities
+
+[CRITICAL]
+Rule: ServiceAccountToken
+Permission: [cluster] */*/*
+Reason: Can create service account tokens
+
+[HIGH]
+Rule: NodeAccess
+Permission: [cluster] */*/*
+Reason: Access to kubelet nodes
+
+[CRITICAL]
+Rule: CertificateApproval
+Permission: [cluster] */*/*
+Reason: Can issue certificates
+
+[HIGH]
+Rule: NamespaceDeletion
+Permission: [cluster] */*/*
+Reason: Can delete namespaces
+
+[MEDIUM]
+Rule: PersistentVolumeModification
+Permission: [cluster] */*/*
+Reason: Can modify storage
+
+[HIGH]
+Rule: NodeDeletion
+Permission: [cluster] */*/*
+Reason: Can remove cluster nodes
+
+[HIGH]
+Rule: SecretDeletion
+Permission: [cluster] */*/*
+Reason: Can delete secrets
+
+[MEDIUM]
+Rule: ConfigMapDeletion
+Permission: [cluster] */*/*
+Reason: Can delete configmaps
+
+
+============================================================
+Pods with dangerous ServiceAccounts
+
+Pod: default/backend-api (SA: default/app-sa)
+  Rules: SecretRead
+
+Pod: production/deploy-worker (SA: production/deployer-sa)
+  Rules: WorkloadCreation

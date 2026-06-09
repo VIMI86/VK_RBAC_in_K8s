@@ -2004,12 +2004,12 @@
         },
         {
             "subject_kind": "User",
-            "subject_name": "bob",
+            "subject_name": "vpPerson1",
             "subject_namespace": null,
             "permissions": [
                 {
                     "subject_kind": "User",
-                    "subject_name": "bob",
+                    "subject_name": "vpPerson1",
                     "subject_namespace": null,
                     "scope": "cluster",
                     "namespace": null,
@@ -2019,7 +2019,7 @@
                 },
                 {
                     "subject_kind": "User",
-                    "subject_name": "bob",
+                    "subject_name": "vpPerson1",
                     "subject_namespace": null,
                     "scope": "cluster",
                     "namespace": null,
@@ -2029,7 +2029,7 @@
                 },
                 {
                     "subject_kind": "User",
-                    "subject_name": "bob",
+                    "subject_name": "vpPerson1",
                     "subject_namespace": null,
                     "scope": "cluster",
                     "namespace": null,

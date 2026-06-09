@@ -1,7 +1,6 @@
 from models.permission import Permission
 
 SAFE_READ_VERBS = frozenset({"get", "list", "watch"})
-
 SENSITIVE_RESOURCES = frozenset({
     "secrets",
     "serviceaccounts/token",
@@ -32,10 +31,7 @@ def has_wildcard(permission: Permission) -> bool:
 
 
 def is_safe_wildcard(permission: Permission) -> bool:
-    """
-    Read-only wildcard rules (typical cluster 'view' roles) are not
-    treated as dangerous. Write verbs or verb '*' always remain dangerous.
-    """
+
     if not has_wildcard(permission):
         return False
 

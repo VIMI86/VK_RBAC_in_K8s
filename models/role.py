@@ -4,7 +4,13 @@ from models.rule import Rule
 
 class Role(BaseModel):
     """
-    Role and ClusterRole, роль выдает список прав для пользователя
+    Представляет Role или ClusterRole в Kubernetes RBAC.
+
+    Атрибуты:
+        kind: Тип роли ("Role" для namespace, "ClusterRole" для кластера)
+        name: Уникальное имя роли
+        namespace: Пространство имён (только для Role, для ClusterRole = None)
+        rules: Список правил RBAC, определяющих разрешения
     """
     kind: str
     name: str

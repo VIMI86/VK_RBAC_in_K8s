@@ -2,11 +2,7 @@ from models.dangerous_pod import DangerousPod
 
 
 def generate_pods_report(dangerous_pods: list[DangerousPod]) -> str:
-    lines = [
-        "=" * 60,
-        "Pods with dangerous ServiceAccounts",
-        "",
-    ]
+    lines = ["=" * 60, "Pods with dangerous ServiceAccounts", ""]
 
     if not dangerous_pods:
         lines.append("NONE")

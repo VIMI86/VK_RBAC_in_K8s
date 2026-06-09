@@ -1,8 +1,3 @@
-"""
-Permission Builder
-Строит список прав (Permission) на основе ролей и привязок (bindings).
-Учитывает scope прав: namespace или cluster.
-"""
 from models.permission import Permission
 from models.role import Role
 from models.binding import Binding

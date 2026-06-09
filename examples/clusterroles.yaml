@@ -2,45 +2,38 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: secret-reader
-
 rules:
 - apiGroups:
   - ""
-
   resources:
   - secrets
-
   verbs:
   - get
+
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: cluster-viewer
-
 rules:
 - apiGroups:
   - "*"
-
   resources:
   - "*"
-
   verbs:
   - get
   - list
   - watch
+
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: cluster-admin-lite
-
 rules:
 - apiGroups:
   - "*"
-
   resources:
   - "*"
-
   verbs:
   - "*"

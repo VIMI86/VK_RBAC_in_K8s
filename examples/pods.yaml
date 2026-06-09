@@ -3,33 +3,30 @@ kind: Pod
 metadata:
   name: backend-api
   namespace: default
-
 spec:
   serviceAccountName: app-sa
-
   containers:
   - name: api
     image: nginx
+
 ---
 apiVersion: v1
 kind: Pod
 metadata:
   name: web-frontend
   namespace: default
-
 spec:
   serviceAccountName: default
-
   containers:
   - name: web
     image: nginx
+
 ---
 apiVersion: v1
 kind: Pod
 metadata:
   name: deploy-worker
   namespace: production
-
 spec:
   serviceAccountName: deployer-sa
 

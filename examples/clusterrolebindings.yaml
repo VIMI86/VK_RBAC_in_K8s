@@ -2,40 +2,36 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: secret-binding
-
 subjects:
 - kind: ServiceAccount
   name: app-sa
   namespace: default
-
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: secret-reader
+
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: viewer-binding
-
 subjects:
 - kind: User
-  name: bob
-
+  name: vpPerson1
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: cluster-viewer
+
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: admin-lite-binding
-
 subjects:
 - kind: Group
   name: devops
-
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
