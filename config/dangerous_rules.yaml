@@ -1,0 +1,236 @@
+- name: SecretRead
+
+  apiGroups:
+    - ""
+
+  resources:
+    - secrets
+
+  verbs:
+    - get
+    - list
+    - watch
+
+  severity: CRITICAL
+
+  description: Can read secrets
+
+
+- name: WorkloadCreation
+
+  apiGroups:
+    - ""
+    - apps
+    - extensions
+    - batch
+
+  resources:
+    - pods
+    - deployments
+    - daemonsets
+    - statefulsets
+    - replicasets
+    - jobs
+    - cronjobs
+
+  verbs:
+    - create
+    - patch
+    - update
+
+  severity: HIGH
+
+  description: Can create or modify workloads
+
+
+- name: PodExec
+
+  apiGroups:
+    - ""
+
+  resources:
+    - pods/exec
+    - pods/attach
+    - pods/portforward
+
+  verbs:
+    - create
+
+  severity: HIGH
+
+  description: Can access running containers
+
+
+- name: RBACEscalation
+
+  apiGroups:
+    - rbac.authorization.k8s.io
+
+  resources:
+    - roles
+    - clusterroles
+    - rolebindings
+    - clusterrolebindings
+
+  verbs:
+    - create
+    - update
+    - patch
+    - bind
+    - escalate
+
+  severity: CRITICAL
+
+  description: Can escalate privileges
+
+
+- name: Impersonation
+
+  apiGroups:
+    - ""
+
+  resources:
+    - users
+    - groups
+    - serviceaccounts
+
+  verbs:
+    - impersonate
+
+  severity: CRITICAL
+
+  description: Can impersonate identities
+
+
+- name: ServiceAccountToken
+
+  apiGroups:
+    - ""
+
+  resources:
+    - serviceaccounts/token
+
+  verbs:
+    - create
+
+  severity: CRITICAL
+
+  description: Can create service account tokens
+
+
+- name: NodeAccess
+
+  apiGroups:
+    - ""
+
+  resources:
+    - nodes
+    - nodes/proxy
+
+  verbs:
+    - get
+    - proxy
+
+  severity: HIGH
+
+  description: Access to kubelet nodes
+
+
+- name: CertificateApproval
+
+  apiGroups:
+    - certificates.k8s.io
+
+  resources:
+    - certificatesigningrequests
+
+  verbs:
+    - create
+    - approve
+
+  severity: CRITICAL
+
+  description: Can issue certificates
+
+
+- name: NamespaceDeletion
+
+  apiGroups:
+    - ""
+
+  resources:
+    - namespaces
+
+  verbs:
+    - delete
+
+  severity: HIGH
+
+  description: Can delete namespaces
+
+
+- name: PersistentVolumeModification
+
+  apiGroups:
+    - ""
+
+  resources:
+    - persistentvolumes
+    - persistentvolumeclaims
+
+  verbs:
+    - create
+    - patch
+    - update
+
+  severity: MEDIUM
+
+  description: Can modify storage
+
+
+- name: NodeDeletion
+
+  apiGroups:
+    - ""
+
+  resources:
+    - nodes
+
+  verbs:
+    - delete
+
+  severity: HIGH
+
+  description: Can remove cluster nodes
+
+
+- name: SecretDeletion
+
+  apiGroups:
+    - ""
+
+  resources:
+    - secrets
+
+  verbs:
+    - delete
+
+  severity: HIGH
+
+  description: Can delete secrets
+
+
+- name: ConfigMapDeletion
+
+  apiGroups:
+    - ""
+
+  resources:
+    - configmaps
+
+  verbs:
+    - delete
+
+  severity: MEDIUM
+
+  description: Can delete configmaps

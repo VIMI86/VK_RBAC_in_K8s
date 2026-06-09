@@ -1,0 +1,43 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: pod-reader
+  namespace: default
+
+rules:
+- apiGroups:
+  - ""
+
+  resources:
+  - pods
+
+  verbs:
+  - get
+  - list
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: workload-modifier
+  namespace: production
+
+rules:
+- apiGroups:
+  - ""
+  - apps
+  - extensions
+  - batch
+
+  resources:
+  - pods
+  - deployments
+  - statefulsets
+  - daemonsets
+  - replicasets
+  - jobs
+  - cronjobs
+
+  verbs:
+  - create
+  - patch
+  - update

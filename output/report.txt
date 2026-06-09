@@ -1,0 +1,22 @@
+============================================================
+Subject: User alice
+
+Permissions:
+[namespace] pods/get
+[namespace] pods/list
+
+Dangerous permissions:
+NONE
+
+============================================================
+Subject: ServiceAccount app-sa
+
+Permissions:
+[cluster] secrets/get
+
+Dangerous permissions:
+
+[CRITICAL]
+Rule: SecretRead
+Permission: secrets/get
+Reason: Can read secrets
